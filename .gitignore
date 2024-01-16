@@ -1,0 +1,11 @@
+# Individual data
+**/xcuserdata/**
+
+# Build files
+build/
+DerivedData/
+
+# OSX Files
+.DS_Store
+
+.build
