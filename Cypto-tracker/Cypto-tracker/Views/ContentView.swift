@@ -12,17 +12,22 @@ struct ContentView: View {
     @ObservedObject var viewModel: TrackerViewModel
     
     var body: some View {
-        Table(viewModel.coins) {
-            TableColumn("Name", value: \.name)
-            TableColumn("Score") { currency in
-                Text(String(currency.price))
+        VStack {
+            Text(<#T##interval: DateInterval##DateInterval#>)
+            
+            Table(viewModel.coins) {
+                TableColumn("Name", value: \.name)
+                TableColumn("Value") { currency in
+                    Text(String(currency.price))
+                }
             }
-        }
-        .onChange(of: sortOrder) { old, new in
-            viewModel.coins.sort(using: new)
-        }
-        .onAppear {
-            viewModel.subscribeToService()
+            .onChange(of: sortOrder) { old, new in
+                // TODO: Add sorting functionality
+                viewModel.coins.sort(using: new)
+            }
+            .onAppear {
+                viewModel.subscribeToService()
+            }
         }
     }
 }

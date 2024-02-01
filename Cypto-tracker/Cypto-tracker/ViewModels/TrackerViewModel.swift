@@ -31,6 +31,7 @@ class TrackerViewModel: ObservableObject {
         self.coins = coins
         self.service = service
         self.disposeBag = disposeBag
+        self.service.connect()
     }
     
     // MARK: Functions
@@ -48,7 +49,9 @@ class TrackerViewModel: ObservableObject {
     func updateView() {
         if self.service.isConnected {
             // update the value here
-            self.coins = self.service.coinDictionary.map { $0.value }
+            self.coins = self.service.coinDictionary.map { $0.value }.sorted(by: { lhs, rhs in
+                lhs.price > rhs.price
+            })
             print("coins: \(self.coins)")
         } else {
             self.coins = []
