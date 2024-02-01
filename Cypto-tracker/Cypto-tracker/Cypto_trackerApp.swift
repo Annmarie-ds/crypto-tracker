@@ -11,7 +11,8 @@ import SwiftUI
 struct Cypto_trackerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            // Maybe cache the previous load to begin with?
+            ContentView(viewModel: TrackerViewModel(coins: []))
         }
     }
 }

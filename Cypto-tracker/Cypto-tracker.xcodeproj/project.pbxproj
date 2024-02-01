@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261DFC512B55FF620047BFE3 /* Cryptocurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261DFC502B55FF620047BFE3 /* Cryptocurrency.swift */; };
+		2650F2CB2B6B451800CFD6CB /* TrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650F2CA2B6B451800CFD6CB /* TrackerViewModel.swift */; };
 		26896A402B55F84A0084E910 /* Cypto_trackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26896A3F2B55F84A0084E910 /* Cypto_trackerApp.swift */; };
 		26896A422B55F84A0084E910 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26896A412B55F84A0084E910 /* ContentView.swift */; };
 		26896A442B55F84B0084E910 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26896A432B55F84B0084E910 /* Assets.xcassets */; };
 		26896A472B55F84B0084E910 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26896A462B55F84B0084E910 /* Preview Assets.xcassets */; };
+		26A2470A2B5E79660001C4C1 /* CoinCapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A247092B5E79660001C4C1 /* CoinCapService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		261DFC502B55FF620047BFE3 /* Cryptocurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptocurrency.swift; sourceTree = "<group>"; };
+		2650F2CA2B6B451800CFD6CB /* TrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewModel.swift; sourceTree = "<group>"; };
 		26896A3C2B55F84A0084E910 /* Cypto-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cypto-tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26896A3F2B55F84A0084E910 /* Cypto_trackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cypto_trackerApp.swift; sourceTree = "<group>"; };
 		26896A412B55F84A0084E910 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26896A432B55F84B0084E910 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26896A462B55F84B0084E910 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		26A247092B5E79660001C4C1 /* CoinCapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCapService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +38,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		261DFC522B560E9C0047BFE3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				261DFC502B55FF620047BFE3 /* Cryptocurrency.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		261DFC532B560EA20047BFE3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				26896A412B55F84A0084E910 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		261DFC542B560EA80047BFE3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2650F2CA2B6B451800CFD6CB /* TrackerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		26896A332B55F84A0084E910 = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +81,13 @@
 		26896A3E2B55F84A0084E910 /* Cypto-tracker */ = {
 			isa = PBXGroup;
 			children = (
+				261DFC542B560EA80047BFE3 /* ViewModels */,
+				261DFC532B560EA20047BFE3 /* Views */,
+				261DFC522B560E9C0047BFE3 /* Models */,
 				26896A3F2B55F84A0084E910 /* Cypto_trackerApp.swift */,
-				26896A412B55F84A0084E910 /* ContentView.swift */,
 				26896A432B55F84B0084E910 /* Assets.xcassets */,
 				26896A452B55F84B0084E910 /* Preview Content */,
+				26A247092B5E79660001C4C1 /* CoinCapService.swift */,
 			);
 			path = "Cypto-tracker";
 			sourceTree = "<group>";
@@ -137,6 +170,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261DFC512B55FF620047BFE3 /* Cryptocurrency.swift in Sources */,
+				2650F2CB2B6B451800CFD6CB /* TrackerViewModel.swift in Sources */,
+				26A2470A2B5E79660001C4C1 /* CoinCapService.swift in Sources */,
 				26896A422B55F84A0084E910 /* ContentView.swift in Sources */,
 				26896A402B55F84A0084E910 /* Cypto_trackerApp.swift in Sources */,
 			);
