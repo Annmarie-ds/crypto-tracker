@@ -92,7 +92,7 @@ class CoinCapService: NSObject, URLSessionTaskDelegate {
             if task.state == .running, self.pingTryCount < 2 {
                 
                 self.pingTryCount += 1
-                print("PING.Count: \(self.pingTryCount)")
+                print("Ping Count: \(self.pingTryCount)")
                 task.sendPing { error in
                     if let error = error {
                         print("ping failed: \(error.localizedDescription)")

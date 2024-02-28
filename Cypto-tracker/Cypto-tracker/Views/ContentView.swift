@@ -12,21 +12,23 @@ struct ContentView: View {
     @ObservedObject var viewModel: TrackerViewModel
     
     var body: some View {
-        VStack {
-            Text(<#T##interval: DateInterval##DateInterval#>)
-            
-            Table(viewModel.coins) {
-                TableColumn("Name", value: \.name)
-                TableColumn("Value") { currency in
-                    Text(String(currency.price))
+        List {
+            Grid {
+                GridRow {
+                    Text("Rank")
+                    Text("Name")
+                    Text("Price")
                 }
-            }
-            .onChange(of: sortOrder) { old, new in
-                // TODO: Add sorting functionality
-                viewModel.coins.sort(using: new)
-            }
-            .onAppear {
-                viewModel.subscribeToService()
+                .bold()
+                Divider()
+                ForEach(Array(viewModel.coins.enumerated()), id: \.1) { (index, value) in
+                    GridRow {
+                        Text("\(index + 1)")
+                        Text(value.name)
+                        Text("\(value.price)")
+                    }
+                    
+                }
             }
         }
     }
@@ -36,7 +38,8 @@ struct ContentView: View {
     ContentView(
         viewModel: TrackerViewModel(
             coins: [Cryptocurrency(name: "Bitcoin", price: 42574.03),
-                    Cryptocurrency(name: "Ethereum",price: 2514.23)]
+                    Cryptocurrency(name: "Ethereum",price: 2514.23),
+                    Cryptocurrency(name: "Tether",price: 2514.23)]
         )
     )
 }

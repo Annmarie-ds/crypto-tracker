@@ -32,6 +32,7 @@ class TrackerViewModel: ObservableObject {
         self.service = service
         self.disposeBag = disposeBag
         self.service.connect()
+        subscribeToService()
     }
     
     // MARK: Functions

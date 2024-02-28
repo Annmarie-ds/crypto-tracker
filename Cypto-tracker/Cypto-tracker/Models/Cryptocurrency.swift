@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Cryptocurrency: Identifiable {
+struct Cryptocurrency: Identifiable, Hashable {
     let id = UUID()
     let name: String
     let price: Double
