@@ -12,7 +12,7 @@ struct Cypto_trackerApp: App {
     var body: some Scene {
         WindowGroup {
             // Maybe cache the previous load to begin with?
-            ContentView(viewModel: TrackerViewModel(coins: []))
+            TrackerView(viewModel: TrackerViewModel(coins: []))
         }
     }
 }

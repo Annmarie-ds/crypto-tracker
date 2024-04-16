@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  TrackerView.swift
 //  Cypto-tracker
 //
 //  Created by Annmarie De Silva on 16/1/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TrackerView: View {
     @State private var sortOrder = [KeyPathComparator(\Cryptocurrency.price)]
     @ObservedObject var viewModel: TrackerViewModel
     
@@ -35,7 +35,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(
+    TrackerView(
         viewModel: TrackerViewModel(
             coins: [Cryptocurrency(name: "Bitcoin", price: 42574.03),
                     Cryptocurrency(name: "Ethereum",price: 2514.23),

@@ -4,7 +4,6 @@
 //
 //  Created by Annmarie De Silva on 22/1/2024.
 //
-
 import Foundation
 import Network
 import Combine
@@ -88,7 +87,8 @@ class CoinCapService: NSObject, URLSessionTaskDelegate {
             guard let self = self,
                   let task = self.websocketTask,
                   task.taskIdentifier == identifier else { return }
-            
+            // also check the pingTryCount because task.state does not get updated immediately
+            // if the internet connection is lost, there is a timeout before this is updated
             if task.state == .running, self.pingTryCount < 2 {
                 
                 self.pingTryCount += 1
@@ -100,6 +100,7 @@ class CoinCapService: NSObject, URLSessionTaskDelegate {
                         self.pingTryCount = 0
                     }
                 }
+                // Calling here again to schedule ping every 5 seconds to check the condition of the connection
                 self.schedulePing()
             } else {
                 self.reconnect()

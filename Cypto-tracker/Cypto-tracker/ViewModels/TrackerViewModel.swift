@@ -11,20 +11,10 @@ import SwiftUI
 
 class TrackerViewModel: ObservableObject {
     // MARK: Properties
-    @Published var coins: [Cryptocurrency] = []
+    @Published var coins: [Cryptocurrency]
     
     private let service: CoinCapService
     private var disposeBag = Set<AnyCancellable>()
-    
-    private let currencyFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        
-        formatter.numberStyle = .currency
-        formatter.currencyCode = "AUD"
-        formatter.currencySymbol = "$"
-        formatter.maximumFractionDigits = 2
-        return formatter
-    }()
     
     // MARK: Init
     init(coins: [Cryptocurrency], service: CoinCapService = CoinCapService(), disposeBag: Set<AnyCancellable> = Set<AnyCancellable>()) {
@@ -32,11 +22,11 @@ class TrackerViewModel: ObservableObject {
         self.service = service
         self.disposeBag = disposeBag
         self.service.connect()
-        subscribeToService()
+        self.subscribeToService()
     }
     
     // MARK: Functions
-    func subscribeToService() {
+    private func subscribeToService() {
         service.coinDictionarySubject
             .combineLatest(service.connectionStateSubject)
             .receive(on: DispatchQueue.main)
