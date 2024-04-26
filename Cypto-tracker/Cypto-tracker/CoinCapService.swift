@@ -18,7 +18,7 @@ class CoinCapService: NSObject, URLSessionTaskDelegate {
     
     let connectionStateSubject = CurrentValueSubject<Bool, Never>(false)
     var isConnected: Bool { connectionStateSubject.value }
-    
+    // This monitors network accessibility
     private let monitor = NWPathMonitor()
     
     func connect() {
@@ -29,11 +29,12 @@ class CoinCapService: NSObject, URLSessionTaskDelegate {
         self.receiveMessage()
         self.schedulePing()
     }
-    // TODO: check this
+
     func startMonitorConnection() {
+        // Assign a closure to the monitor that will be triggered whenever network accessibility changes
         monitor.pathUpdateHandler = { [weak self] path in
             guard let self = self else { return }
-            
+            // the status describes whether a connection is currently available or not
             if path.status == .satisfied, self.websocketTask == nil {
                 self.connect()
             }
@@ -42,6 +43,7 @@ class CoinCapService: NSObject, URLSessionTaskDelegate {
             }
         }
         
+        // Once the monitor path is configured, call its start() method on the main queue
         monitor.start(queue: .main)
     }
     
